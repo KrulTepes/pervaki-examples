@@ -24,17 +24,17 @@ func DifficultFuncCtx(ctx context.Context) {
 	for i := 0; i < 5; i++ {
 		select {
 		case <-ctx.Done():
-			fmt.Println(ctx.Err().Error())
+			fmt.Printf("DifficultFuncCtx err: %v\n", ctx.Err())
 			return
 		default:
 		}
 
 		difficultStepCtx()
 	}
-	fmt.Println("DifficultFunc all step finish")
+	fmt.Println("DifficultFuncCtx all step finish")
 }
 
 func difficultStepCtx() {
 	time.Sleep(2 * time.Second)
-	fmt.Println("difficult step finish")
+	fmt.Println("DifficultStepCtx finish")
 }
